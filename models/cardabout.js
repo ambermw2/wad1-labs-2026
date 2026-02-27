@@ -1,13 +1,14 @@
-import card from "./card.json" with { type: "json" };
+'use strict';
+
 import JsonStore from "./json-store.js";
 
 const empStore = {
+  store: new JsonStore('./models/card.json', { employees: [] }),
+  collection: 'employees',
 
- store: new JsonStore('./models/card.json', { employee: {} }),
-  collection: 'employee',
-  getAppInfo() {
+  getAllEmployees() {
     return this.store.findAll(this.collection);
-  },
+  }
 };
 
-export default empStore; 
+export default empStore;

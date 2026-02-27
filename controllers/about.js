@@ -1,18 +1,17 @@
 'use strict';
-
 import logger from "../utils/logger.js";
 import empStore from "../models/cardabout.js";
 
 const about = {
   createView(request, response) {
-    logger.info("Dashboard page loading!");
-    
-    const viewData = {
-      title: "About the Playlist App",
-      employee: empStore.getAppInfo()
+    logger.info("About page loading!");
+   
+      const viewData = {
+      title: "Playlist App About",
+      emps: empStore.getAllEmployees()
     };
-    
-    response.render('about', viewData);
+    logger.info(viewData.emps)
+    response.render('about', viewData); 
   },
 };
 
